@@ -1,0 +1,43 @@
+.allcarsdiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    margin-left: 1rem;
+}
+
+.not-available-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    top: 15%;
+    font-size: 1.3rem;
+    color: floralwhite;
+}
+
+.gray-bg {
+    background-color: rgba(128, 128, 128, 0.628);
+    width: 18rem;
+    height: 24rem;
+    position: absolute;
+    z-index: 4;
+}
+
+.carsdiv1 {
+    margin-top: 1rem;
+    z-index: 1;
+}
+
+.car-edit-options {
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+    z-index: 9999;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 8px 0;
+    min-width: 100px;
+    height: fit-content;
+}

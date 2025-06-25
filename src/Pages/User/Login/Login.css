@@ -1,0 +1,94 @@
+.heading{
+    font-weight: bold;
+    margin-top: 5rem;
+    font-size:xx-large;
+    gap:1rem;
+    font-family:"Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
+}
+.heading2{
+    font-size: large;
+}
+.part-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3rem;
+}
+.car-animation{
+    display: flex;
+    justify-self: center;
+    width:20rem;
+}
+.logindiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    padding-right:2rem;
+}
+.login-page{
+    display:grid;
+    grid-template-columns: repeat(2,1fr)
+}
+.loginform{
+    width:24rem;
+    background-color:cadetblue;
+    height:fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-top{
+    border: 1px solid cadetblue;
+    width:24rem;
+    margin-bottom: 0;
+    text-align: center;
+    background-color: aliceblue;
+}
+.sign-in{
+    background-color:aliceblue;
+    color:black;
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.log-in{
+    background-color:aliceblue;
+    color:black;
+    position:relative;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+.btns{
+    display:flex;
+    flex-direction: row;
+    gap:1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.otpbox{
+    display:flex;
+    flex-direction: column;
+}
+.forget-pass{
+    margin-top: 0.8rem;
+    color:royalblue;
+    text-decoration: underline;
+}
+.dashboardbtn{
+    text-decoration: none;
+    background-color:darkcyan;
+    color:white;
+    padding: 0.3rem;
+}
+@media  screen and (max-width:600px) {
+    .login-page{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

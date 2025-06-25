@@ -1,0 +1,25 @@
+importScripts("https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js");
+importScripts("https://www.gstatic.com/firebasejs/10.12.2/firebase-messaging-compat.js");
+
+firebase.initializeApp({
+  apiKey: "AIzaSyANbJhotMq9vJ9O3AIF3o-LSFxRFDbZnu8",
+  authDomain: "car-rental-68d5f.firebaseapp.com",
+  projectId: "car-rental-68d5f",
+  storageBucket: "car-rental-68d5f.firebasestorage.app",
+  messagingSenderId: "820998440705",
+  appId: "1:820998440705:web:900209321fa1fed437bd00",
+  measurementId: "G-XZCK9305MW"
+});
+
+const messaging=firebase.messaging()
+
+messaging.onBackgroundMessage(payload => {
+  console.log("Received background message ", payload);
+  const notificationTitle = payload.notification.title;
+  const notificationOptions = {
+    body: payload.notification.body,
+    icon: ""
+  };
+
+  self.registration.showNotification(notificationTitle, notificationOptions);
+});

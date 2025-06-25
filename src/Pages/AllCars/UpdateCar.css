@@ -1,0 +1,38 @@
+.update-heading{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 24px;
+    color: #333;
+}
+.update-form-container{
+    position: absolute;
+    left:50%;
+    margin-top: 20px;
+    transform: translateX(-50%);
+}
+.card-text{
+    display: flex;
+    flex-direction: column;
+}
+.update-card{
+    height:27rem;
+}
+.edit-btn{
+    cursor: pointer;
+    font-size: 16px;
+
+}
+.update-btn{
+    position:"absolute";
+    bottom:"5%";
+    left:"50%";
+    transform:"translateX(-50%)";
+ }
+.image-upload-container {
+    height: 10rem;
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Changed from align-content to align-items for vertical alignment */
+}

@@ -1,0 +1,35 @@
+.carsdiv{
+    display: flex;
+    gap:1.5rem;
+    overflow-x:auto;
+    margin-left: 0.5rem;
+}
+.carsdiv::-webkit-scrollbar{
+    display: none;
+}
+.card-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card-content-fixed{
+    display: flex;
+    flex-direction: column;
+}
+.not-available-text-1{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    top: 15%;
+    font-size: 1.3rem;
+    color: floralwhite;
+}
+
+.gray-bg-1 {
+    background-color: rgba(128, 128, 128, 0.628);
+    width: 18rem;
+    height: 23rem;
+    position: absolute;
+    z-index: 4;
+}

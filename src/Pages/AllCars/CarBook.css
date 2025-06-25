@@ -1,0 +1,27 @@
+.car-form-div{
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+}
+.starting-date-div{
+    display: flex;
+    gap:0.5rem;
+    margin-left: 1rem;
+}
+.ending-date-div{
+   display: flex;
+    gap:0.5rem; 
+    margin-left: 1.5rem;
+}
+.book-car-btn{
+    width:4rem;
+    align-self: center;
+    background-color:darkseagreen;
+    border-color: darkseagreen;
+}
+.booking-page{
+    position: absolute;
+    left:50%;
+    margin-top: 5rem;
+    transform: translateX(-50%);
+}
