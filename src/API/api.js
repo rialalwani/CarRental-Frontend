@@ -30,6 +30,10 @@ export const login=async(data)=>{
     return (await API.post("/user/login",data))
 }
 
+export const getAllUsers=async()=>{
+    return (await API.get("/user/allusers"))
+}
+
 export const forgetPassword=async(email)=>{
     return (await API.post("/forget-password/sendotp",{email}))
 }
@@ -69,3 +73,4 @@ export const deleteImage=async(data)=>{
 export const updateAvailability=async(data)=>{
     return (await API.put("/cars/updateAvailability",data))
 }
+

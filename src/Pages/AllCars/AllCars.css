@@ -1,9 +1,12 @@
-.allcarsdiv {
+.allcarsdiv1 {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
-    margin-top: 2.5rem;
-    margin-left: 1rem;
+    padding-left: 1.5rem;
+}
+.allcarsdiv{
+    background-color: rgba(0,0,0,0.865);
+    padding-top: 2rem;
 }
 
 .not-available-text {
@@ -27,6 +30,8 @@
 .carsdiv1 {
     margin-top: 1rem;
     z-index: 1;
+    background-color: black;
+    color:white;
 }
 
 .car-edit-options {

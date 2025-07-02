@@ -12,14 +12,17 @@ import { useSelector } from "react-redux";
 import ImageUpload from "../../../Components/ImageUpload/ImageUpload.jsx"
 import { useEffect, useState } from "react";
 import {Link} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
-function Home() {
+function Home({fetchImages}) {
     const contenttext = ["Looking for a hassle-free car rental experience?", "We offer a wide range of well-maintained vehicles at unbeatable prices", "Whether you need a compact car for city travel, an SUV for a road trip, or a luxury ride for a special occasion", "We’ve got you covered!"]
     const role=useSelector(state=>state.userreducer)?.role
     const [imageUploadPage,setImageUploadPage]=useState(false)
+    const navigate=useNavigate()
     
 
-
+     useEffect(()=>fetchImages(),[])
     //console.log(role)
 
     const cards=[
@@ -48,23 +51,59 @@ function Home() {
             color:"cornflowerblue"
         }
 ]
+    // Car animation component
+    const CarAnimation = () => (
+        <div style={{
+            background: 'black',
+            width: '100%',
+            height: '180px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            overflow: 'hidden',
+            marginBottom: '2rem',
+            
+        }}>
+            <motion.img
+                src="/sport-car.png"
+                alt="Car Animation"
+                style={{ height: '300px', width: 'auto', display: 'block', position:"absolute",
+            top:"8rem",left:"10rem"}}
+                initial={{ x:-200 }}
+                animate={{ x: 10 }}
+                transition={{
+                    repeat: Infinity,
+                    duration: 3,
+                    ease: "linear"
+                }}
+            />
+        </div>
+    );
+
+    // Ref for scrolling
+    const contentRef = useRef(null);
+
+    const handleStartClick = () => {
+        if (contentRef.current) {
+            contentRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <div className="Homepage">
+            
             <div className="dashboard">
-                <Carousel>
-                    <Carousel.Item>
-                        <img src="/dashboard.jpg" style={{zIndex:1}}></img>
-                        <Carousel.Caption>
-                            <Textanimation />
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
+               <h1 className="company-name">AMR WHEELS</h1>
+               <Textanimation/>
+               <div className="dashboard-btns">
+                <button className="dashboard-btn" onClick={handleStartClick}>Start</button>
+                <button onClick={()=>navigate("/login")} className="dashboard-btn">Login</button>
+               </div>
             </div>
-
-            <div className="Content container">
+            <div className="Content1" ref={contentRef}>
                 {contenttext.map((text, index) => (
                     <motion.div
-                        className="animation2"
+                        className="animation2 "
                         initial={{
                             opacity: 0,
                             x: 0
@@ -77,21 +116,32 @@ function Home() {
                             }
                         }}
                         viewport={{ once: true }}
+                        key={index}
                     >
-                        <p>{text}</p>
+                        <p
+                            className="centered-text"
+                            style={{
+                               whiteSpace:"normal",
+                               wordWrap:"break-word",
+                               overflowWrap:"break-word",
+                               textWrap:"pretty"
+                            }}
+                        >
+                            {text}
+                        </p>
                     </motion.div>
                 ))}
             </div>
 
             <div className="Features">
-                {cards.map((card)=>(
-                     <Card style={{ width: '18rem',borderBottom:`3px solid ${card?.color}` }} className="card">
+                {cards.map((card, idx) => (
+                     <Card style={{ width: '18rem',borderBottom:`3px solid ${card?.color}` ,backgroundColor:"black"}} className="card feature" key={idx}>
                      <Card.Body>
                        <Card.Title style={{display:"flex", flexDirection:"row", gap:"0.5rem"}}>
                         <div style={{color:card.color}}>{card.icon}</div>
                         <b className="card-title">{card.title}</b>
                         </Card.Title>
-                       <Card.Text>
+                       <Card.Text style={{color:"white"}}>
                          {card.text}
                        </Card.Text>
                      </Card.Body>
@@ -108,7 +158,7 @@ function Home() {
             </div>
             :
             <div style={{marginTop:"4rem"}}>
-                <Cars></Cars>
+                <Cars fetchImages={fetchImages}></Cars>
                 <Link to="/allcars" className="car-links">See More</Link>
             </div>
             }

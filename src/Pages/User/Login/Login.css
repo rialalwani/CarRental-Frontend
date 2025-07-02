@@ -24,31 +24,38 @@
     justify-content: center;
     align-items: center;
     margin: 2rem;
-    padding-right:2rem;
+    margin-top: 4rem;
 }
 .login-page{
     display:grid;
-    grid-template-columns: repeat(2,1fr)
+    grid-template-columns: repeat(2,1fr);
+    background-color: black;
+    color:white;
+    padding-bottom: 5rem;
+    height:fit-content;
 }
 .loginform{
     width:24rem;
-    background-color:cadetblue;
+    background-color:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.2); 
     height:fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 1rem;
 }
 .form-top{
-    border: 1px solid cadetblue;
+    border: 1px solid rgba(255,255,255,0.2);
     width:24rem;
     margin-bottom: 0;
     text-align: center;
-    background-color: aliceblue;
+    background-color:rgba(255,255,255,0.05);
+    color:white;
 }
 .sign-in{
-    background-color:aliceblue;
-    color:black;
+    color:aliceblue;
+    background-color:black;
     position:relative;
     display: flex;
     justify-content: center;
@@ -85,6 +92,9 @@
     background-color:darkcyan;
     color:white;
     padding: 0.3rem;
+}
+.car-animation{
+    margin-left: -3rem;
 }
 @media  screen and (max-width:600px) {
     .login-page{

@@ -22,4 +22,27 @@ messaging.onBackgroundMessage(payload => {
   };
 
   self.registration.showNotification(notificationTitle, notificationOptions);
+
+  self.addEventListener("notificationclick",(e)=>{
+
+     e.notification.close();
+     const targetUrl="http://localhost:3000/allbookings";
+
+     e.waitUntil(
+       clients.matchAll({type:"window",includeControlled:true})
+       .then((clientList)=>{
+         for (const client of clientList)
+         {
+            if(client.url===targetUrl && 'focus' in client)
+            return client.focus
+         }
+
+         if(clients.openWindow) //open the tab if not already opened
+        return client.openWindow(targetUrl)
+       }
+       )
+
+     )
+
+  })
 });

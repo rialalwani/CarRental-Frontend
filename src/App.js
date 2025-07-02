@@ -8,13 +8,17 @@ import ResetPassword from "./Pages/Reset/Reset.jsx";
 import { AllCars } from "./Pages/AllCars/AllCars.jsx";
 import CarBook from "./Pages/AllCars/CarBook.jsx"
 import { MyBookings } from "./Pages/User/Bookings/MyBookings.jsx";
-import { getImages } from "./API/api.js";
+import { getImages, getUserBookings } from "./API/api.js";
 import { getallimages } from "./Counter/carsCounterSlice.js";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import UpdateCar from "./Pages/AllCars/UpdateCar.jsx";
 import { log_out } from "./Counter/counterslice.js";
 import AllBookings from "./Pages/User/Bookings/AllBookings.jsx"
+import { getMyBookings } from "./Counter/bookingsCounterSlice.js";
+import { useSelector } from "react-redux";
+import { getAllUsers } from "./API/api.js";
+import { allUsers } from "./Counter/UsersCounterSlice.js";
 
 function App() {
 
@@ -28,6 +32,7 @@ function App() {
   }
 
   const dispatch = useDispatch()
+  const user=useSelector(state=>state.userreducer)
 
   function isTokenExpired(token) {
     if (!token) return true;
@@ -58,8 +63,30 @@ function App() {
       .catch((error) => console.log(error.message))
   }
 
+  const fetchBookings=()=>{
+    getUserBookings()
+    .then((response)=>{
+      //console.log(response.data)
+      dispatch(getMyBookings(response?.data))
+    })
+    .catch(error=>console.log(error.message))
+  }
+
+  const getallusers=()=>{
+    if(user)
+    {
+      getAllUsers().then((response)=>{
+        //console.log(response?.data)
+        dispatch(allUsers(response?.data))
+      })
+      .catch(error=>console.log(error.message))
+    }
+  }
+
   useEffect(() => {
     fetchImages();
+    fetchBookings();
+    getallusers();
   }, [])
 
   return (
@@ -67,14 +94,14 @@ function App() {
       <BrowserRouter>
         <Navbar></Navbar>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home fetchImages={fetchImages}/>}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/reset-password" element={<ResetPassword />}></Route>
           <Route path="/allcars" element={<AllCars fetchImages={fetchImages} />}></Route>
-          <Route path="/book/:id" element={<CarBook />}></Route>
-          <Route path="/mybookings" element={<MyBookings />}></Route>
+          <Route path="/book/:id" element={<CarBook fetchBookings={fetchBookings} />}></Route>
+          <Route path="/mybookings" element={<MyBookings fetchBookings={fetchBookings} />}></Route>
           <Route path="/update/:id" element={<UpdateCar fetchImages={fetchImages} />}></Route>
-          <Route path="/allbookings" element={<AllBookings/>}></Route>
+          <Route path="/allbookings" element={<AllBookings fetchBookings={fetchBookings}/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

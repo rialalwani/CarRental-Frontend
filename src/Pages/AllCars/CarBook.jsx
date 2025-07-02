@@ -1,5 +1,5 @@
 import "./CarBook.css"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
 import CardLink from "react-bootstrap/esm/CardLink.js"
 import Card from "react-bootstrap/Card"
@@ -7,7 +7,7 @@ import { io } from "socket.io-client"
 import { useSocket } from "../../Socket.js"
 import { useState, useEffect, useRef } from "react"
 
-const BookCar = () => {
+const BookCar = ({fetchBookings}) => {
     const { id } = useParams()
     const cars = useSelector(state => state.carreducers).cars
     const car = cars?.find(car => car._id === id)
@@ -17,6 +17,9 @@ const BookCar = () => {
     const user = useSelector(state => state.userreducer)
     const [bookingDone, setBookingDone] = useState(false)
     const socket = useSocket()
+    const navigate=useNavigate()
+
+   
 
     const bookCar = () => {
         if (!user?.email)
@@ -24,9 +27,11 @@ const BookCar = () => {
         if (!startingDate && !endDate)
             alert("Enter booking date")
 
-        const diff = endDate - startingDate
+        const diff = new Date(endDate) - new Date(startingDate)
         const days = diff / (1000 * 60 * 60 * 24)
-        const bookingCharges = (days * car?.price)
+        const bookingCharges=days*car?.price
+        console.log(bookingCharges)
+
         const bookingDetails = {
             userEmail: user?.email,
             carId: id,
@@ -46,7 +51,8 @@ const BookCar = () => {
 
             socket?.current?.on("bookingCompleted", (response) => {
             console.log("Booking Done")
-            setBookingDone(true)
+            fetchBookings()
+            navigate("/mybookings")
            })
         },[socket.current])
 

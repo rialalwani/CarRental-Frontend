@@ -1,0 +1,27 @@
+.my-bookings-container{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    top:20%;
+    display: flex;
+    flex-direction: column;
+    background-color:ghostwhite;
+    border:2px solid rgba(220, 220, 220, 0.142);
+    width:25rem;
+    height:fit-content;
+}
+.straight-line{
+    width:25rem;
+    height:1px;
+    background-color: gray;
+}
+.booking-heading{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+.previous-bookings{
+    color:rgb(100, 121, 237);
+    text-align: center;
+    text-decoration: underline;
+}

@@ -6,6 +6,7 @@ import * as api from "../../../API/api.js"
 import { verifyotp, log_in } from "../../../Counter/counterslice.js";
 import { useDispatch, useSelector } from "react-redux"
 import { TiTick } from "react-icons/ti";
+import {DotLottieReact} from "@lottiefiles/dotlottie-react"
 
 const Login = () => {
     const [signup, setSignup] = useState(false)//false for login
@@ -77,7 +78,7 @@ const Login = () => {
                 <p className="heading">Welcome to AMR WHEELS</p>
                 <p className="heading2">Get you favourite cars at affordable prices</p>
                 <p style={{ fontSize: "larger" }}>Anytime, Anywhere</p>
-                <img className="car-animation" src="/convertible-car.gif"></img>
+                <DotLottieReact className="car-animation" src="https://lottie.host/0d003a06-cd44-44e2-b842-e8dd55afd36c/BtDkHNs2t4.lottie" loop autoplay></DotLottieReact>
             </div>
             {user?.email ?
                 <div className="logindiv" style={{display:"flex", flexDirection:"column", gap:"1rem"}}>
@@ -94,7 +95,7 @@ const Login = () => {
                             :
                             <p className="form-top">Login</p>
                         }
-                        <IoPersonCircle style={{ color: "white" }} size={45} />
+                        <IoPersonCircle style={{ color: "white" ,marginTop:"1rem"}} size={45} />
                         {signup ?
                             <form className="login-form">
                                 <label>Email</label>

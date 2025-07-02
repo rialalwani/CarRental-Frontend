@@ -1,13 +1,15 @@
-.text{
+.text {
     font-size: 24px;
-    color:white;
-    text-align:center;
-    padding-left:30rem;
-    font-family:'Times New Roman', Times, serif;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    align-self: center;
 }
-@media screen and (max-width:999px) {
-    .text{
-        text-align: center;
-        padding-left: 0rem;
-    }
+
+.animationdiv {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-right: 100px;
 }

@@ -11,6 +11,7 @@ export const AllCars = ({fetchImages}) => {
     const user = useSelector(state => state.userreducer)
 
 
+    useEffect(()=>fetchImages(),[])
     const sortMap = {
         "Available": 0,
         "Booked": 1,
@@ -73,7 +74,9 @@ export const AllCars = ({fetchImages}) => {
     };
 
     return (
-        <div className="allcarsdiv">
+        <div className='allcarsdiv'>
+             <h4 style={{color:"white",textDecoration:"underline",textAlign:"center"}}>All Cars</h4>
+        <div className="allcarsdiv1">
             {sortedCars?.map((car) =>
                 <Card key={car?._id} style={{ width: '18rem', height: "24rem", position: "relative" }} className="carsdiv1">
                     <Card.Img variant="top" src={car?.url} style={{ height: "10rem" }} />
@@ -134,6 +137,7 @@ export const AllCars = ({fetchImages}) => {
                     </Card.Body>
                 </Card>
             )}
+        </div>
         </div>
     )
 }
