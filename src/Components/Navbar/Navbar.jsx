@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { log_out } from "../../Counter/counterslice.js";
+import { useSocket } from "../../Socket.js";
 
 function Navbar() {
     const [showdrawersidebar, setshowdrawersidebar] = useState(false);
@@ -15,7 +16,7 @@ function Navbar() {
     }
     const user = useSelector(state => state.userreducer)
     const dispatch = useDispatch()
-    console.log(showdrawersidebar)
+
     const logout = () => {
         dispatch(log_out())
     }
@@ -30,10 +31,12 @@ function Navbar() {
 
     return (
         <div>
-            <nav className="verticalNav navbar navbar-expand-md  pt-3" style={{ width: "100%"}}>
+            <nav className="verticalNav navbar navbar-expand-md  pt-3" style={{ width: "100%" }}>
                 <a className="navbar-brand brand-name ms-md-5 ms-sm-4 ms-2 text-white logo" href="#">AMR WHEELS</a>
                 <button className="navbar-toggler position-relative" type="button" onClick={e => toggledrawersidebar()}>
-                    <span className="navbar-toggler-icon" style={{color:"white"}}></span>
+                    <svg width="30" height="30" viewBox="0 0 30 30">
+                        <path d="M4 7h22M4 15h22M4 23h22" stroke="white" strokeWidth="3" strokeLinecap="round" />
+                    </svg>
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -50,20 +53,17 @@ function Navbar() {
                         </li>
                         <li className="nav-item ps-2">
                             {user?.role == "owner" ?
-                                <Link to="/allbookings"className="nav-link text-white">Bookings</Link>
+                                <Link to="/allbookings" className="nav-link text-white">Bookings</Link>
                                 :
                                 <Link to="/mybookings" className="nav-link text-white">My Bookings</Link>}
                         </li>
                         <li className="nav-item ps-2">
-                            <a className="nav-link text-white" href="#">Policies</a>
-                        </li>
-                        <li className="nav-item ps-2">
-                            <a className="nav-link text-white" href="#">Help & Support</a>
+                            <Link to="/contact" className="nav-link text-white" href="#">Contact</Link>
                         </li>
                     </ul>
                 </div>
                 {showdrawersidebar &&
-                    <div className=" horizontalNav position-absolute top-50 mt-4 end-0" style={{ zIndex: 2}}>
+                    <div className=" horizontalNav position-absolute top-50 mt-4 end-0" style={{ zIndex: 2 }}>
                         <ul className="nav flex-column ms-0">
                             <li className="nav-item active">
                                 <Link to="/" className="nav-link  text-black" >Home</Link>
@@ -82,10 +82,7 @@ function Navbar() {
                                     <Link to="/mybookings" className="nav-link text-black">My Bookings</Link>}
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-black" href="#">Policies</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link text-black" href="#">Help & Support</a>
+                                 <Link to="/contact" className="nav-link text-black" href="#">Contact</Link>
                             </li>
                         </ul></div>
                 }

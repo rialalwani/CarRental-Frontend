@@ -17,9 +17,8 @@ const ResetPassword = () => {
             alert("Enter your email id")
         }
         else {
-            setShowotp(true)
             api.forgetPassword(email)
-                .then(() => console.log("Otp sent"))
+                .then(() => setShowotp(true))
                 .catch((error) => alert(error?.response?.data))
         }
     }
@@ -51,10 +50,10 @@ const ResetPassword = () => {
     }
     console.log(passwordChanged)
     return (
-        <div>
+        <div className="forget-password-page">
             {passwordChanged ?
                 <div className="resetdiv1">
-                    <div style={{ fontSize: "large" }} >
+                    <div style={{ fontSize: "large" ,color:"white"}}>
                         Password changed successfully<TiTick size={32} style={{ color: "green" }} />
                     </div>
                     <Link to='/login' className="loginpagebtn">Go To Login Page</Link>
@@ -63,26 +62,26 @@ const ResetPassword = () => {
                 <div className="resetform">
                     {passwordReset ?
                         <form className="reset-form">
-                            <p className="form-top1">Reset Password</p>
+                            <div className="form-top1"><p style={{marginTop:"1rem"}}>Reset Password</p></div>
                             <label>New Password</label>
-                            <input type="password" placeholder="Enter password" onChange={e => setPassword1(e.target.value)} />
+                            <input type="password" placeholder="Enter password" onChange={e => setPassword1(e.target.value)} style={{background:"black",color:"white",border:"1px solid gray"}}/>
                             <label>Confirm Password</label>
-                            <input type="password" placeholder="Enter password" onChange={e => setPassword2(e.target.value)} />
-                            <button type="button" onClick={changePassword}>Submit</button>
+                            <input type="password" placeholder="Enter password" onChange={e => setPassword2(e.target.value)} style={{background:"black",color:"white",border:"1px solid gray"}}/>
+                            <button type="button" onClick={changePassword} style={{background:"darkseagreen"}}>Submit</button>
                         </form>
                         :
                         <form className="reset-form">
                             <p className="form-top1">Reset Password</p>
                             <label>Email</label>
-                            <input type='email' placeholder="Enter your email" onChange={e => setEmail(e.target.value)}></input>
+                            <input type='email' placeholder="Enter your email" onChange={e => setEmail(e.target.value)} style={{background:"black",color:"white",border:"1px solid gray"}}></input>
                             {showotp && <div className="otpbox">
                                 <label>OTP</label>
-                                <input type="text" placeholder="Enter Otp" style={{ marginBottom: "1rem" }} onChange={e => setotp(e.target.value)}></input>
+                                <input type="text" placeholder="Enter Otp" style={{ marginBottom: "1rem" ,background:"black",color:"white",border:"1px solid gray"}} onChange={e => setotp(e.target.value)} ></input>
                             </div>}
                             {showotp ?
-                                <button type="button" onClick={submitotp}>Submit</button>
+                                <button type="button" onClick={submitotp} style={{background:"darkseagreen"}}>Submit</button>
                                 :
-                                <button type="button" onClick={login}>Verify Email</button>}
+                                <button type="button" onClick={login} style={{background:"darkseagreen"}}>Verify Email</button>}
                         </form>
                     }
                 </div>

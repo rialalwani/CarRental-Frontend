@@ -79,8 +79,9 @@
 }
 
 .car-links {
-    margin-left: 90%;
-    white-space: nowrap;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .dashboard {

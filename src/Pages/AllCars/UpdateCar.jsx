@@ -65,17 +65,17 @@ const UpdateCar = ({ fetchImages }) => {
 
   return (
     <div className="update-car">
-      <h2 className="update-heading">Update Car</h2>
+      <h2 className="update-heading" style={{color:"white"}}>Update Car</h2>
       <div className="update-form-container">
         <div className="update-form">
           <Card style={{ width: '18rem' }} className="update-card">
             <div style={{ position: "relative" }}>
               {showImageUpload ?
-                <div className="image-upload-container">
+                <div className="image-upload-container ">
                   <input
                     type="file"
                     id="fileInput"
-                    accept="image/*"
+                    accept=".png,.jpg,.jpeg,.webp"
                     style={{ display: 'none' }}
                     onChange={(e) => setFile(e.target.files[0])}
                   />
@@ -89,7 +89,7 @@ const UpdateCar = ({ fetchImages }) => {
                     cursor: 'pointer',
                     display: 'inline-block'
                   }}>{file?.name || "Choose Image"}</label>
-                  <button style={{marginTop:"1rem"}} onClick={()=>uploadImage()}>Upload</button>
+                  <button style={{marginTop:"1rem",backgroundColor:"rgb(173, 208, 230)"}} onClick={()=>uploadImage()}>Upload</button>
                 </div>
                 :
                 <Card.Img variant="top" src={car?.url} style={{ height: "10rem", zIndex: "1" }} />
@@ -114,19 +114,20 @@ const UpdateCar = ({ fetchImages }) => {
             </div>
             {showUpdateForm ?
               <Card.Body>
-                <div>
-                  <input type="text" placeholder={car?.carname} onChange={(e) => setCarData({ ...carData, carname: e.target.value })} style={{ width: "14rem" }} />
-                  {user?.role === "owner" && <CiEdit size={22} fill="black" onClick={() => setShowUpdateForm(!showUpdateForm)} className="edit-btn" />}
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <input type="text" placeholder={car?.carname} onChange={(e) => setCarData({ ...carData, carname: e.target.value })} style={{ width: "14rem",background:"rgba(0,0,0,0.865)",color:"white" ,border:"1px solid gray"}} />
+                  {user?.role === "owner" && <CiEdit size={22} fill="white" onClick={() => setShowUpdateForm(!showUpdateForm)} className="edit-btn" />}
                 </div>
                 <Card.Text className="card-text">
                   <textarea
+                  className="my-text-box"
                     placeholder={car?.cardesc}
                     onChange={(e) => setCarData({ ...carData, cardesc: e.target.value })}
-                    style={{ width: "14rem", height: "4rem", marginTop: "1rem" }} />
+                    style={{ width: "14rem", height: "4rem", marginTop: "1rem" ,background:"rgba(0,0,0,0.865)",color:"white" ,border:"1px solid gray"}} />
                   <label htmlFor="price" style={{ marginTop: "1rem" }}>Price:</label>
-                  <input type="number" placeholder={car?.price} onChange={(e) => setCarData({ ...carData, price: e.target.value })} style={{ width: "14rem" }} />
+                  <input type="number" placeholder={car?.price} onChange={(e) => setCarData({ ...carData, price: e.target.value })} style={{ width: "14rem" ,background:"rgba(0,0,0,0.865)",color:"white" ,border:"1px solid gray"}} />
                 </Card.Text>
-                <button className="update-btn" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)" }} onClick={() => {
+                <button className="update-btn" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)",background:"rgb(0, 157, 255)" }} onClick={() => {
                   updateCarData();
                   setShowUpdateForm(false);
                 }}>Update</button>
@@ -135,7 +136,7 @@ const UpdateCar = ({ fetchImages }) => {
               <Card.Body>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <Card.Title>{car?.carname}</Card.Title>
-                  {user?.role === "owner" && <CiEdit size={22} fill="black" onClick={() => setShowUpdateForm(!showUpdateForm)} className="edit-btn" />}
+                  {user?.role === "owner" && <CiEdit size={22} fill="white" onClick={() => setShowUpdateForm(!showUpdateForm)} className="edit-btn" />}
                 </div>
                 <Card.Text className="card-text">
                   <p style={{ width: "16rem" }}>{car?.cardesc}</p>

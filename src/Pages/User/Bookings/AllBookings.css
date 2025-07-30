@@ -1,0 +1,17 @@
+.bookings-page{
+    background-color: rgba(0,0,0,0.865);
+}
+.booking-options{
+     position: absolute;
+    z-index: 9999;
+    background: #fff;
+    color:black;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: fit-content;
+    height: fit-content;
+    margin-left: 4rem;
+    margin-bottom: 0;
+    margin-top: -70px;
+}

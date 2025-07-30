@@ -73,6 +73,8 @@ export const AllCars = ({fetchImages}) => {
         }
     };
 
+        
+      
     return (
         <div className='allcarsdiv'>
              <h4 style={{color:"white",textDecoration:"underline",textAlign:"center"}}>All Cars</h4>
@@ -82,7 +84,10 @@ export const AllCars = ({fetchImages}) => {
                     <Card.Img variant="top" src={car?.url} style={{ height: "10rem" }} />
                     {car?.availability !== "Available" && 
                     <div className='gray-bg'>
-                        <p className='not-available-text'>Not Available</p>
+                        <div >
+                                <p className='not-available-text-1'>Not Available</p>
+                                <p style={{position:"absolute",top:"30%",color:"black",fontWeight:"bolder",marginLeft:"0.5rem",fontSize:"1.1rem"}}>Next Availibility {new Date(car?.nextAvailibility).toDateString()}</p>
+                            </div>
                         {user.role === "owner" &&
                             <div>
                                 <div style={{ position: "absolute", bottom: "0", right: "0", padding: "10px", zIndex: 2 }}>

@@ -22,6 +22,14 @@
 .booking-page{
     position: absolute;
     left:50%;
-    margin-top: 5rem;
+    margin-top: 2rem;
     transform: translateX(-50%);
+    padding-bottom: 1rem;
+    background-color: black;
+    color:white;
+}
+.booking-page-div{
+     background-color: rgba(0,0,0,0.865);
+    height: fit-content;
+    padding-bottom: 70rem;
 }

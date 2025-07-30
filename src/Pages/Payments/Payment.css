@@ -1,0 +1,6 @@
+.Payment-page{
+    min-height: 100vh;
+    max-height: fit-content;
+     background-color: rgba(0,0,0,0.865);
+     color:white;
+}

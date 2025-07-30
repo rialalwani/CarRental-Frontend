@@ -6,17 +6,26 @@ const SocketContext = createContext(null)
 
 export const SocketProvider = ({ children }) => {
     const socket = useRef(null)
-    const [token,setToken] = useState(localStorage.getItem("token"))
+    const token = localStorage.getItem("token")
 
     useEffect(() => {
         getFcmToken().then(fcmToken => {
+            if(!socket.current)
+            {
             socket.current = io("http://localhost:5000", {
                 auth: {
                     token:token,
                     fcmToken: fcmToken
                 }
             })
-        })
+        }})
+
+         return () => {
+            if (socket.current) {
+                socket.current.disconnect();
+                socket.current = null;
+            }
+        };
     }, [token])
 
     return (

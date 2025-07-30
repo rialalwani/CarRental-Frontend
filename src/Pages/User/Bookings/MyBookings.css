@@ -5,7 +5,8 @@
     top:20%;
     display: flex;
     flex-direction: column;
-    background-color:ghostwhite;
+    background-color:black;
+    color:white;
     border:2px solid rgba(220, 220, 220, 0.142);
     width:25rem;
     height:fit-content;
@@ -24,4 +25,17 @@
     color:rgb(100, 121, 237);
     text-align: center;
     text-decoration: underline;
+}
+.bookings-page{
+    background-color: rgba(0,0,0,0.865);
+}
+.status-and-date{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.payment-link{
+    text-decoration: none;
+    margin-right: 7px;
+    color:rgb(0, 140, 255);
 }

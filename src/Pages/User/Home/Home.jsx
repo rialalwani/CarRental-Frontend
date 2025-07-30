@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import {Link} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
+import Footer from "../../../Components/Footer/Footer.jsx";
 
 function Home({fetchImages}) {
     const contenttext = ["Looking for a hassle-free car rental experience?", "We offer a wide range of well-maintained vehicles at unbeatable prices", "Whether you need a compact car for city travel, an SUV for a road trip, or a luxury ride for a special occasion", "We’ve got you covered!"]
@@ -152,7 +153,7 @@ function Home({fetchImages}) {
              <div className="owner-car-div">
                 <h4 className="owner-car-div-heading">MY CARS</h4>
                 <Cars></Cars>
-                <Link to="allcars" className="car-links">See More</Link>
+                <Link to="allcars" style={{marginRight:"10px",textAlign:"end"}}>See More</Link>
                 <button type="button" onClick={()=>setImageUploadPage(true)} className="upload-car">Upload new Car</button>
                  {imageUploadPage && <ImageUpload setImageUploadPage={setImageUploadPage}/>}
             </div>
@@ -162,6 +163,8 @@ function Home({fetchImages}) {
                 <Link to="/allcars" className="car-links">See More</Link>
             </div>
             }
+
+           <Footer/>
         </div>
     )
 }

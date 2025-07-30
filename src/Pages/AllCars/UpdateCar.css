@@ -1,6 +1,6 @@
 .update-heading{
     text-align: center;
-    margin-top: 30px;
+    padding-top: 30px;
     font-size: 24px;
     color: #333;
 }
@@ -16,6 +16,8 @@
 }
 .update-card{
     height:27rem;
+    background-color: black;
+    color:white;
 }
 .edit-btn{
     cursor: pointer;
@@ -35,4 +37,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center; /* Changed from align-content to align-items for vertical alignment */
+}
+.update-car{
+    background-color:rgba(0,0,0,0.865);
+    height:100vh;
+    color:white;
+}
+.my-text-box{
+    overflow-y: scroll;
+    scrollbar-width: none; /*firefox*/
+     -ms-overflow-style: none; /* IE/Edge */
+
+}
+.my-text-box::-webkit-scrollbar{
+    display: none; /* Chrome, Safari */
 }

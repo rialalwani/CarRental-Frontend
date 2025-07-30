@@ -58,6 +58,18 @@ export const getUserBookings=async()=>{
     return (await API.get("/bookings/mybookings"))
 }
 
+export const getAllBookings=async()=>{
+    return (await API.get("/bookings/allbookings"))
+}
+
+export const getCancelledBookings=async()=>{
+    return (await API.get("/bookings/mycancelledbookings"))
+}
+
+export const getAllCancelledBookings=async()=>{
+    return (await API.get("/bookings/allcancelledbookings"))
+}
+
 export const updateImageData=async(data)=>{
     return (await API.put("/cars/updateImageData",data))
 }
@@ -72,5 +84,10 @@ export const deleteImage=async(data)=>{
 
 export const updateAvailability=async(data)=>{
     return (await API.put("/cars/updateAvailability",data))
+}
+
+export const sendDocs=async(data)=>{
+    console.log(data)
+    return (await API.post("/email/senddocs",data))
 }
 

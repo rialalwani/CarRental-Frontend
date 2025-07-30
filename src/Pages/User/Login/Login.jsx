@@ -24,10 +24,9 @@ const Login = () => {
             alert("Enter your email id")
         }
         else {
-            setShowotp(true)
             api.sendotp(email)
                 .then(() =>
-                    console.log("Otp sent"))
+                    setShowotp(true))
                 .catch((error) => {
                     console.log(error)
                     alert(error?.response?.data)

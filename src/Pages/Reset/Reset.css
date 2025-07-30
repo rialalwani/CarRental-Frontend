@@ -1,5 +1,5 @@
 .resetform{
-    background-color: lightblue;
+    background-color: black;
     padding: 1rem;
     width:18rem;
     height:fit-content;
@@ -7,6 +7,11 @@
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+    color:white;
+}
+.forget-password-page{
+    background-color: rgba(0,0,0,0.865);
+    height:100vh;
 }
 .reset-form{
     display:flex;
@@ -14,12 +19,12 @@
     gap:1rem;
 }
 .form-top1{
-    background-color: aliceblue;
+    background-color: black;
+    color:white;
     width:18rem;
     position: relative;
     right:1rem;
     bottom:1rem;
-    border: 1px solid skyblue;
     text-align: center;
 }
 .resetdiv1{
@@ -32,7 +37,7 @@
     transform: translate(-50%,-50%);
 }
 .loginpagebtn{
-    background-color: cornflowerblue;
+    background-color: green;
     text-decoration: none;
     color:white;
     padding:0.3rem;

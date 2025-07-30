@@ -20,7 +20,7 @@
 }
 
 .gray-bg {
-    background-color: rgba(128, 128, 128, 0.628);
+    background-color: rgba(128, 128, 128, 0.722);
     width: 18rem;
     height: 24rem;
     position: absolute;
@@ -40,6 +40,7 @@
     right: 10px;
     z-index: 9999;
     background: #fff;
+    color:black;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     padding: 8px 0;
