@@ -25,7 +25,7 @@ const Cars = ({fetchImages}) => {
         <div className="carsdiv">
             {sortedCars?.map((car) =>
                 <div key={car._id}>
-                    <Card style={{ width: '20rem', height: "23rem",backgroundColor:"black" }} className="carsdiv1">
+                    <Card style={{ width: '18rem', height: "23rem",backgroundColor:"black" }} className="carsdiv1">
                         <Card.Img variant="top" src={car?.url} style={{ height: "10rem" }} />
                         {car?.availability !== "Available" && <div className='gray-bg-1'>
                             <div >

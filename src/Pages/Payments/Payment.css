@@ -1,6 +1,30 @@
 .Payment-page{
-    min-height: 100vh;
-    max-height: fit-content;
+     height: 100vh;
      background-color: rgba(0,0,0,0.865);
      color:white;
+     padding-bottom: 60rem;
+}
+.payment-container{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left:50%;
+    translate: -50%;
+    top:20%;
+    height:fit-content;
+    padding-bottom: 2rem;
+    width:"18rem";
+    background-color: black;
+}
+.payment-btn{
+   padding:0.1rem 1rem;
+   background-color:rgb(95, 160, 121);
+   border-radius: 0.2rem;
+   border:1px solid rgb(95, 160, 121);
+   cursor: pointer;
+   margin-top: 1rem;
+   display: flex;
+   justify-self: center;
+   color:aliceblue;
+   margin-right: 1rem;
 }

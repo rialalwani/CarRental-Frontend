@@ -1,7 +1,7 @@
 import "./Textanimation.css"
 import {motion} from "framer-motion"
 function Textanimation() {
-    const texts=["The freedom of the road,just a click away!","Drive the Experience","Rent-Ride-Repeat","Your Ride,Your Rules"]
+    const texts=["The freedom of the road - just a click away!","Drive the Experience","Rent-Ride-Repeat","Your Ride,Your Rules"]
     return (
         <div className="animationdiv">
             {texts.map((text,index)=>(

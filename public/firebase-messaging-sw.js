@@ -26,7 +26,7 @@ messaging.onBackgroundMessage(payload => {
   self.addEventListener("notificationclick",(e)=>{
 
      e.notification.close();
-     const targetUrl="http://localhost:3000/allbookings";
+     const targetUrl="https://carrental-backend-dvnk.onrender.com/allbookings";
 
      e.waitUntil(
        clients.matchAll({type:"window",includeControlled:true})

@@ -15,6 +15,7 @@
     "framer-motion": "^12.4.7",
     "from": "^0.1.7",
     "jwt-decode": "^4.0.0",
+    "razorpay": "^2.9.6",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",

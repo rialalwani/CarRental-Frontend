@@ -91,3 +91,18 @@ export const sendDocs=async(data)=>{
     return (await API.post("/email/senddocs",data))
 }
 
+export const createOrder=async(data)=>{
+    return (await API.post("/payment/create-order",data))
+}
+
+export const verifyPayment=async(data)=>{
+    return (await API.post("/payment/verify-payment",data))
+}
+
+export const getMyTransactions=async()=>{
+    return (await API.get("/payment/get-payment-details"))
+}
+
+export const getAllTransactions=async()=>{
+    return (await API.get("/payment/getAllPayments"))
+}

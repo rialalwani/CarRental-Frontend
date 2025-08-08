@@ -32,6 +32,10 @@ import {DamagePolicy} from "./Pages/Policies/Damage/Damage.jsx";
 import {OutstationPolicy} from "./Pages/Policies/Outstation/Outstation.jsx";
 import {Contact} from "./Pages/Contact/contact.jsx";
 import PageNotFound from "./Pages/PageNotFound.jsx"
+import { getTransactions } from "./Counter/transactions.js";
+import { getMyTransactions,getAllTransactions } from "./API/api.js";
+import { MyTransactions} from "./Pages/Transactions/MyTransactions.jsx";
+import { AllTransactions } from "./Pages/Transactions/AllTransactions.jsx";
 
 function App() {
 
@@ -53,7 +57,7 @@ function App() {
 
     if (!socket.current) return;
 
-    console.log(socket?.current?.id)
+    //console.log(socket?.current?.id)
 
     function handleNewBookingRequest() {
 
@@ -208,18 +212,38 @@ function App() {
     }
   }
 
+  const fetchMyTransactions = () => {
+    getMyTransactions()
+      .then((response) => {
+        dispatch(getTransactions(response?.data))
+      })
+      .catch(error => console.log(error.message))
+  }
+
+  const fetchAllTransactions=()=>{
+    getAllTransactions()
+    .then((response)=>{
+      //console.log(response.data)
+      dispatch(getTransactions(response?.data))
+    })
+    .catch(error=>console.log(error.message))
+  }
+
   useEffect(() => {
     fetchImages()
     if (user.role === "verified-user") {
       fetchBookings();
-      fetchCancelledBookings()
+      fetchCancelledBookings();
+      fetchMyTransactions();
     }
     if (user.role === "owner") {
       getallusers();
       fetchAllBookings();
       fetchAllCancelledBookings()
+      fetchAllTransactions()
     }
   }, [])
+
 
   return (
     <div className="App">
@@ -243,6 +267,8 @@ function App() {
         <Route path="/damage-policy" element={<DamagePolicy/>}></Route>
         <Route path="/contact" element={<Contact/>}></Route>
         <Route path="*" element={<PageNotFound/>}></Route>
+        {user.role==="owner" && <Route path="/alltransactions" element={<AllTransactions/>}></Route>}
+        {user.role==="verified-user" && <Route path="/mytransactions" element={<MyTransactions/>} ></Route>}
       </Routes>
     </div>
   );

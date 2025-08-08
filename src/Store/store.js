@@ -4,6 +4,7 @@ import carreducers from "../Counter/carsCounterSlice"
 import bookingreducers from "../Counter/bookingsCounterSlice"
 import UsersReducers from "../Counter/UsersCounterSlice"
 import CancelledBookings from "../Counter/cancelledBookingsSlice"
+import TransactionsReducers from "../Counter/transactions.js"
 
 export const store=configureStore({
     reducer:{
@@ -11,6 +12,7 @@ export const store=configureStore({
         carreducers:carreducers,
         bookingreducers:bookingreducers,
         UserReducers: UsersReducers,
-        CancelledBookings:CancelledBookings
+        CancelledBookings:CancelledBookings,
+        Transactions:TransactionsReducers
     }
 })

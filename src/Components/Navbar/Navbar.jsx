@@ -57,6 +57,12 @@ function Navbar() {
                                 :
                                 <Link to="/mybookings" className="nav-link text-white">My Bookings</Link>}
                         </li>
+                        <li className="nav-item">
+                                {user?.role == "owner" ?
+                                    <Link to="/alltransactions" className="nav-link text-white">Transactions</Link>
+                                    :
+                                    <Link to="/mytransactions" className="nav-link text-white">Transactions</Link>} 
+                        </li>
                         <li className="nav-item ps-2">
                             <Link to="/contact" className="nav-link text-white" href="#">Contact</Link>
                         </li>
@@ -83,6 +89,12 @@ function Navbar() {
                             </li>
                             <li className="nav-item">
                                  <Link to="/contact" className="nav-link text-black" href="#">Contact</Link>
+                            </li>
+                            <li className="nav-item">
+                                {user?.role == "owner" ?
+                                    <Link to="/alltransactions" className="nav-link text-black">Transactions</Link>
+                                    :
+                                    <Link to="/mytransactions" className="nav-link text-black">Transactions</Link>} 
                             </li>
                         </ul></div>
                 }
