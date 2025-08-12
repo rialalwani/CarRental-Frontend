@@ -86,7 +86,7 @@ export const AllCars = ({fetchImages}) => {
                     <div className='gray-bg'>
                         <div >
                                 <p className='not-available-text-1'>Not Available</p>
-                                <p style={{position:"absolute",top:"30%",color:"black",fontWeight:"bolder",marginLeft:"0.5rem",fontSize:"1.1rem"}}>Next Availibility {new Date(car?.nextAvailibility).toDateString()}</p>
+                                {car?.nextAvailibility && <p style={{position:"absolute",top:"30%",color:"black",fontWeight:"bolder",marginLeft:"0.5rem",fontSize:"1.1rem"}}>Next Availibility {new Date(car?.nextAvailibility).toDateString()}</p>}
                             </div>
                         {user.role === "owner" &&
                             <div>
