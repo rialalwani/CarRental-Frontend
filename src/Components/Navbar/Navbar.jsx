@@ -76,7 +76,7 @@ function Navbar() {
                             </li>
                             <li className="nav-item">
                                 {user?.email ?
-                                    <button className="nav-link text-white" onClick={logout}>Logout</button>
+                                    <button className="nav-link text-black" onClick={logout}>Logout</button>
                                     :
                                     <Link to="/login" className="nav-link  text-black">Login/SignUp</Link>
                                 }
