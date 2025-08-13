@@ -13,7 +13,7 @@ export const AllTransactions = () => {
     return (
         <div style={{ backgroundColor: "rgba(0,0,0,0.865)", color: "white",minHeight:"100vh", height:"fit-content" }}>
             <h4 style={{ textAlign: "center",paddingTop:"3rem" }}>All Transactions</h4>
-            <div style={{width:"fit-content",marginTop:"2rem",padding:"1rem",display:"flex",flexDirection:"column-reverse",justifySelf:"center",paddingBottom:"4rem"}}>
+            <div style={{width:"90%",maxWidth:"25rem",marginTop:"2rem",padding:"1rem",display:"flex",flexDirection:"column-reverse",justifySelf:"center",paddingBottom:"4rem"}}>
                 {transactions.map((transaction, index) => {
                     const user = findUser(transaction?.user);
                     return (
@@ -24,7 +24,8 @@ export const AllTransactions = () => {
                                 gap: "10px",
                                 padding: "10px",
                                 borderRadius: "5px",
-                                width:"25rem",
+                                width:"90%",
+                                maxWidth:"25rem",
                                 border:"1px solid white"
                             }}
                             key={index}

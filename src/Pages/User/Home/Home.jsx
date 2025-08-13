@@ -101,17 +101,17 @@ function Home({fetchImages}) {
                 <button onClick={()=>navigate("/login")} className="dashboard-btn">Login</button>
                </div>
             </div>
-            <div className="Content1" ref={contentRef}>
+            <div className="Content1-home" ref={contentRef}>
                 {contenttext.map((text, index) => (
                     <motion.div
                         className="animation2 "
                         initial={{
                             opacity: 0,
-                            x: 0
+                            x: -50
                         }}
                         whileInView={{
                             opacity: 1,
-                            x: 50, // Slide in to its original position
+                            x: 0, // Slide in to its original position
                             transition: {
                                 duration: 1 // Animation duration
                             }
@@ -120,13 +120,7 @@ function Home({fetchImages}) {
                         key={index}
                     >
                         <p
-                            className="centered-text"
-                            style={{
-                               whiteSpace:"normal",
-                               wordWrap:"break-word",
-                               overflowWrap:"break-word",
-                               textWrap:"pretty"
-                            }}
+                            className="centered-text-homepage"
                         >
                             {text}
                         </p>

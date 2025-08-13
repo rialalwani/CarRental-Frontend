@@ -4,6 +4,7 @@
     font-size:xx-large;
     gap:1rem;
     font-family:"Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif";
+    text-wrap:wrap;
 }
 .heading2{
     font-size: large;
@@ -32,7 +33,9 @@
     background-color: black;
     color:white;
     padding-bottom: 5rem;
+    min-height: 100vh;
     height:fit-content;
+    place-content: center;
 }
 .loginform{
     width:24rem;
@@ -96,9 +99,26 @@
 .car-animation{
     margin-left: -3rem;
 }
-@media  screen and (max-width:600px) {
+@media  screen and (max-width:800px) {
     .login-page{
         display: grid;
         grid-template-columns: 1fr;
+        place-content: center;
+    }
+}
+@media screen and (min-width:600px)  {
+    .heading{
+        text-align: center;
+    }
+    .heading2{
+        text-align: center;
+    }
+    .heading3{
+        text-align: center;
+    }
+    .car-animation{
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

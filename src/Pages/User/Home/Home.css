@@ -1,5 +1,5 @@
 .carousel img {
-    width: 98%;
+    width: 100%;
     /* or a fixed width like 500px */
     height: 350px;
     /* Fixed height */
@@ -11,22 +11,35 @@
 }
 
 .Homepage {
-    background-color:rgba(0,0,0,0.865);
+    background-color: rgba(0, 0, 0, 0.865);
     height: fit-content;
     padding-bottom: 5rem;
+    width:100%;
 }
 
 .carouseltext {
     font-weight: bold;
 }
 
-.Content1 {
+.Content1-home {
     margin-top: 5rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgba(255, 255, 255, 0.888);
-    width: 100vw !important;
-    text-align: center;
+    color: whitesmoke;
 }
+
+.Content1-home > * {
+  min-width: 0; /* crucial for wrapping inside flex/grid */
+}
+
+.centered-text-homepage{
+   overflow-wrap: normal;
+   white-space:normal;
+   word-break:normal;
+   hyphens: none;
+   text-align: center;
+}
+
+
 
 .animation2:first-child {
     font-weight: bold;
@@ -37,6 +50,14 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+.animation2 {
+  display: block;     /* not inline-flex or inline-block */
+  width: 100%;        /* take full line width */
+  min-width: 0;       /* allow shrinking in flex/grid parents */
+  text-align: center; /* keep centered text */
+}
+
 
 .Features {
     display: flex;
@@ -86,29 +107,31 @@
 
 .dashboard {
     height: 80vh;
-    background:radial-gradient(rgba(0, 0, 139, 0.557),black);
+    background: radial-gradient(rgba(0, 0, 139, 0.557), black);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:1.5rem;
+    gap: 1.5rem;
 }
 
 .company-name {
-    color:white;
+    color: white;
     font-weight: bolder;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     white-space: nowrap;
 }
-.dashboard-btns{
+
+.dashboard-btns {
     display: flex;
     flex-direction: row;
-    gap:1rem;
+    gap: 1rem;
 }
-.dashboard-btn{
-    width:6rem;
+
+.dashboard-btn {
+    width: 6rem;
     border-radius: 12%;
-    padding:0.5rem;
+    padding: 0.5rem;
     background-color: white;
 }

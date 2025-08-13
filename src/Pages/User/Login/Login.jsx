@@ -75,8 +75,8 @@ const Login = () => {
         <div className="login-page">
             <div className="part-1">
                 <p className="heading">Welcome to AMR WHEELS</p>
-                <p className="heading2">Get you favourite cars at affordable prices</p>
-                <p style={{ fontSize: "larger" }}>Anytime, Anywhere</p>
+                <p className="heading2">Get your favourite cars at affordable prices</p>
+                <p className="heading3" style={{ fontSize: "larger" }}>Anytime, Anywhere</p>
                 <DotLottieReact className="car-animation" src="https://lottie.host/0d003a06-cd44-44e2-b842-e8dd55afd36c/BtDkHNs2t4.lottie" loop autoplay></DotLottieReact>
             </div>
             {user?.email ?

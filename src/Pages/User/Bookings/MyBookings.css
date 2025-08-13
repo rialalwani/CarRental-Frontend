@@ -8,7 +8,8 @@
     background-color:black;
     color:white;
     border:2px solid rgba(220, 220, 220, 0.142);
-    width:25rem;
+    width:90%;
+    max-width:25rem;
     height:fit-content;
 }
 .straight-line{
