@@ -72,20 +72,20 @@ const BookCar = ({ fetchBookings }) => {
             location:location
         };
 
-        const toBase64 = (file) => {
+        /*const toBase64 = (file) => {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
                 reader.readAsDataURL(file);
                 reader.onload = () => resolve(reader.result);
                 reader.onerror = reject;
             });
-        };
+        };*/
 
-        const adhaarBase64 = await toBase64(adhaar);
-        const dlBase64 = await toBase64(dl);
+        //const adhaarBase64 = await toBase64(adhaar);
+        //const dlBase64 = await toBase64(dl);
         const data = new FormData()
-        data.append("aadhaar", adhaarBase64)
-        data.append("dl", dlBase64)
+        data.append("aadhaar", adhaar)
+        data.append("dl", dl)
         data.append("bookingDetails", JSON.stringify(bookingDetails))
 
 

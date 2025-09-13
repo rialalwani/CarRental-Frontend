@@ -258,9 +258,11 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />}></Route>
         <Route path="/allcars" element={<AllCars fetchImages={fetchImages} />}></Route>
         <Route path="/book/:id" element={<CarBook fetchBookings={fetchBookings} />}></Route>
-        {<Route path="/mybookings" element={<MyBookings fetchBookings={fetchBookings} fetchCancelledBookings={fetchCancelledBookings}/>}></Route>}
         <Route path="/update/:id" element={<UpdateCar fetchImages={fetchImages} />}></Route>
-        {user.role==="owner" && <Route path="/allbookings" element={<AllBookings fetchAllBookings={fetchAllBookings} fetchAllCancelledBookings={fetchAllCancelledBookings}/>}></Route>}
+        {user.role==="owner" ?
+         (<Route path="/allbookings" element={<AllBookings fetchAllBookings={fetchAllBookings} fetchAllCancelledBookings={fetchAllCancelledBookings}/>}></Route>)
+        :
+        (<Route path="/mybookings" element={<MyBookings fetchBookings={fetchBookings} fetchCancelledBookings={fetchCancelledBookings}></MyBookings>}></Route>)}
         <Route path="/pay/:id" element={<PaymentPage/>}></Route>  
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}></Route>
         <Route path="/rental-agreement" element={<RentalAgreement/>}></Route>
@@ -270,8 +272,8 @@ function App() {
         <Route path="/terms-and-conditions" element={<TermsAndConditions/>}></Route>
         <Route path="/contact" element={<Contact/>}></Route>
         <Route path="*" element={<PageNotFound/>}></Route>
-        {user.role==="owner" && <Route path="/alltransactions" element={<AllTransactions/>}></Route>}
-        {<Route path="/mytransactions" element={<MyTransactions/>} ></Route>}
+        {user.role==="owner" && (<Route path="/alltransactions" element={<AllTransactions fetchAllTransactions={fetchAllTransactions}/>}></Route>)}
+        <Route path="/mytransactions" element={<MyTransactions fetchMyTransactions={fetchMyTransactions}/>} ></Route>
       </Routes>
     </div>
   );

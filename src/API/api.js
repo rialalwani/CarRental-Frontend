@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const API=axios.create({
-    baseURL:"https://carrental-backend-dvnk.onrender.com/", 
+    baseURL:"https://carrental-backend-dvnk.onrender.com", 
 })
 
 API.interceptors.request.use(
@@ -87,7 +87,7 @@ export const updateAvailability=async(data)=>{
 }
 
 export const sendDocs=async(data)=>{
-    console.log(data)
+    //console.log(data)
     return (await API.post("/email/senddocs",data))
 }
 

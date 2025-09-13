@@ -1,14 +1,19 @@
 import { useSelector } from "react-redux";
 import { FaPlus } from "react-icons/fa";
+import { useEffect } from "react";
 
-export const AllTransactions = () => {
+export const AllTransactions = ({fetchAllTransactions}) => {
     const transactions = useSelector(state=>state.Transactions.transactions);
     const Users=useSelector(state=>state.UserReducers.Users)
     ///console.log(transactions)
 
     const findUser = (userEmail) => {
-        return Users.find(u => u.email === userEmail);
+        return Users?.find(u => u.email === userEmail);
     }
+
+    useEffect(()=>{
+        fetchAllTransactions()
+    },[])
 
     return (
         <div style={{ backgroundColor: "rgba(0,0,0,0.865)", color: "white",minHeight:"100vh", height:"fit-content" }}>

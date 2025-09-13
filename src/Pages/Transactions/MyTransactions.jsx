@@ -1,11 +1,16 @@
 import { useSelector } from "react-redux"
 import { TiTick } from "react-icons/ti";
 import { RxCross2 } from "react-icons/rx";
+import { useEffect } from "react";
 
-export const MyTransactions = () => {
+export const MyTransactions = ({fetchMyTransactions}) => {
 
     const transactions = useSelector((state) => state.Transactions.transactions);
     //console.log(transactions)
+
+    useEffect(()=>{
+        fetchMyTransactions()
+    },[])
 
     return (
         <div style={{ backgroundColor: "rgba(0,0,0,0.865)", height: "fit-content",paddingBottom:"4rem",minHeight:"100vh" }}>

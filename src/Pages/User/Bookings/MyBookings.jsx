@@ -15,9 +15,22 @@ export const MyBookings = ({ fetchBookings ,fetchCancelledBookings}) => {
   const [options, setOptions] = useState([])
   const cancelledBookings=useSelector(state=>state.CancelledBookings.bookings)
 
-  useEffect(() => {
-    setOptions(ongoingBookings?.map(b => ({ _id: b._id, val: false })))
-  }, [bookings])
+/*useEffect(() => {
+  const newOptions = ongoingBookings.map(b => ({ _id: b._id, val: false }))
+  setOptions(prev => {
+    if (JSON.stringify(prev) !== JSON.stringify(newOptions)) {
+      return newOptions
+    }
+    return prev
+  })
+}, [ongoingBookings])*/
+
+useEffect(()=>{
+    if(ongoingBookings.length!==0)
+    setOptions(ongoingBookings?.map(b=>({_id:b._id,val:false})))
+  },[bookings])
+
+
 
 
   const handleEdit = (id) => {
@@ -72,15 +85,7 @@ export const MyBookings = ({ fetchBookings ,fetchCancelledBookings}) => {
     fetchCancelledBookings()
   },[])
 
-  useEffect(() => {
-    const bookingsPage = document.querySelector('.bookings-page')
-    const container = document.querySelector('.my-bookings-container')
-    if (bookingsPage && container) {
-      const containerHeight = container.offsetHeight
-      bookingsPage.style.minHeight = '100vh'
-      bookingsPage.style.height = containerHeight > window.innerHeight ? `${containerHeight + 80}px` : '100vh'
-    }
-  }, [ongoingBookings, previousBookings, showPreviousBookings])
+  
 
 
   const bookingCancelled = () => {

@@ -32,7 +32,7 @@ function Navbar() {
     return (
         <div>
             <nav className="verticalNav navbar navbar-expand-md  pt-3" style={{ width: "100%" }}>
-                <a className="navbar-brand brand-name ms-md-5 ms-sm-4 ms-2 text-white logo" href="#">AMR WHEELS</a>
+                <h3 className="navbar-brand brand-name ms-md-5 ms-sm-4 ms-2  text-white logo" >AMR WHEELS</h3>
                 <button className="navbar-toggler position-relative" type="button" onClick={e => toggledrawersidebar()}>
                     <svg width="30" height="30" viewBox="0 0 30 30">
                         <path d="M4 7h22M4 15h22M4 23h22" stroke="white" strokeWidth="3" strokeLinecap="round" />
@@ -64,7 +64,7 @@ function Navbar() {
                                     <Link to="/mytransactions" className="nav-link text-white">Transactions</Link>} 
                         </li>
                         <li className="nav-item ps-2">
-                            <Link to="/contact" className="nav-link text-white" href="#">Contact</Link>
+                            <Link to="/contact" className="nav-link text-white">Contact</Link>
                         </li>
                     </ul>
                 </div>
