@@ -29,8 +29,8 @@
 }
 .bookings-page{
     background-color: rgba(0,0,0,0.865);
-    min-height:100vh;
     height:fit-content;
+    min-height:100vh;
 }
 .status-and-date{
     display:flex;
