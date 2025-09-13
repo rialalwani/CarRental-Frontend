@@ -12,7 +12,7 @@ export const SocketProvider = ({ children }) => {
         getFcmToken().then(fcmToken => {
             if(!socket.current)
             {
-            socket.current = io("https://carrental-backend-dvnk.onrender.com", {
+            socket.current = io("https://carrental-backend-dvnk.onrender.com/", {
                 auth: {
                     token:token,
                     fcmToken: fcmToken

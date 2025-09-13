@@ -33,7 +33,7 @@ const UpdateCar = ({ fetchImages }) => {
       }, 0);
     }
     catch (error) {
-      console.log(error.message)
+      //console.log(error.message)
     }
 
   }
@@ -51,7 +51,7 @@ const UpdateCar = ({ fetchImages }) => {
 
     try {
       const response = await updateImage(formData);
-      console.log(response.data)
+      //console.log(response.data)
       fetchImages();
       setShowImageUpload(false);
       setFile(null);
@@ -59,7 +59,7 @@ const UpdateCar = ({ fetchImages }) => {
         navigate("/allcars");
       }, 0);
     } catch (error) {
-      console.error("Error uploading image:", error);
+      //console.error("Error uploading image:", error);
     }
   }
 

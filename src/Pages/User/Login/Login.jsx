@@ -18,7 +18,7 @@ const Login = () => {
     const [phonenumber, setphonenumber] = useState("")
     const dispatch = useDispatch()
     const user = useSelector(state => state.userreducer)
-    console.log(user)
+    //console.log(user)
     const SendOtp = () => {
         if (!email) {
             alert("Enter your email id")
@@ -28,7 +28,7 @@ const Login = () => {
                 .then(() =>
                     setShowotp(true))
                 .catch((error) => {
-                    console.log(error)
+                    //console.log(error)
                     alert(error?.response?.data)
                 })
         }

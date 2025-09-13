@@ -36,6 +36,7 @@ import { getTransactions } from "./Counter/transactions.js";
 import { getMyTransactions,getAllTransactions } from "./API/api.js";
 import { MyTransactions} from "./Pages/Transactions/MyTransactions.jsx";
 import { AllTransactions } from "./Pages/Transactions/AllTransactions.jsx";
+import { TermsAndConditions } from "./Pages/Policies/TermsAndConditions/TermsAndConditions.jsx";
 
 function App() {
 
@@ -43,7 +44,7 @@ function App() {
     navigator.serviceWorker
       .register('/firebase-messaging-sw.js')
       .then((registration) => {
-        console.log("Service Worker registered:", registration);
+        //console.log("Service Worker registered:", registration);
       })
       .catch(err => console.error("SW registration failed:", err));
   }
@@ -215,6 +216,7 @@ function App() {
   const fetchMyTransactions = () => {
     getMyTransactions()
       .then((response) => {
+        //console.log(response.data)
         dispatch(getTransactions(response?.data))
       })
       .catch(error => console.log(error.message))
@@ -256,7 +258,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />}></Route>
         <Route path="/allcars" element={<AllCars fetchImages={fetchImages} />}></Route>
         <Route path="/book/:id" element={<CarBook fetchBookings={fetchBookings} />}></Route>
-        {user.role==="verified-user" && <Route path="/mybookings" element={<MyBookings fetchBookings={fetchBookings} fetchCancelledBookings={fetchCancelledBookings}/>}></Route>}
+        {<Route path="/mybookings" element={<MyBookings fetchBookings={fetchBookings} fetchCancelledBookings={fetchCancelledBookings}/>}></Route>}
         <Route path="/update/:id" element={<UpdateCar fetchImages={fetchImages} />}></Route>
         {user.role==="owner" && <Route path="/allbookings" element={<AllBookings fetchAllBookings={fetchAllBookings} fetchAllCancelledBookings={fetchAllCancelledBookings}/>}></Route>}
         <Route path="/pay/:id" element={<PaymentPage/>}></Route>  
@@ -265,10 +267,11 @@ function App() {
         <Route path="/refund-policy" element={<RefundPolicy/>}></Route>
         <Route path="/outstation-policy" element={<OutstationPolicy/>}></Route>
         <Route path="/damage-policy" element={<DamagePolicy/>}></Route>
+        <Route path="/terms-and-conditions" element={<TermsAndConditions/>}></Route>
         <Route path="/contact" element={<Contact/>}></Route>
         <Route path="*" element={<PageNotFound/>}></Route>
         {user.role==="owner" && <Route path="/alltransactions" element={<AllTransactions/>}></Route>}
-        {user.role==="verified-user" && <Route path="/mytransactions" element={<MyTransactions/>} ></Route>}
+        {<Route path="/mytransactions" element={<MyTransactions/>} ></Route>}
       </Routes>
     </div>
   );

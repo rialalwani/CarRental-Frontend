@@ -1,4 +1,3 @@
-import {Link} from "react-router-dom";
 import Footer from "../../../Components/Footer/Footer";
 export const PrivacyPolicy = () => {
     return (

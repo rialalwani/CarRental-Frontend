@@ -20,7 +20,7 @@ export const getFcmToken = async () => {
         navigator.serviceWorker
             .register("/firebase-messaging-sw.js")
             .then((registration) => {
-                console.log("SW registered:")});
+                /*console.log("SW registered:")*/});
 
                 
                 if (permission == "granted") {
@@ -31,10 +31,10 @@ export const getFcmToken = async () => {
                     return token;
                 }
                 else {
-                    console.log("Permission denied")
+                    //console.log("Permission denied")
                 }
             }
     catch (error) {
-            console.log(error.message)
+            //console.log(error.message)
         }
     }

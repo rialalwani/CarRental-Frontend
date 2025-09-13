@@ -55,10 +55,10 @@ export const AllCars = ({fetchImages}) => {
         try {
             const response = await updateAvailability({ _id: carId});
             fetchImages()
-            console.log("Car archived successfully:", response.data);
+            //console.log("Car archived successfully:", response.data);
         }
         catch (error) {
-            console.error("Error archiving car:", error);
+            //console.error("Error archiving car:", error);
         }
     };
 
@@ -66,10 +66,10 @@ export const AllCars = ({fetchImages}) => {
         try {
             const response = await deleteImage({ _id: carId });
             fetchImages()
-            console.log("Car deleted successfully:", response.data);
+            //console.log("Car deleted successfully:", response.data);
         }
         catch (error) {
-            console.error("Error deleting car:", error);
+            //console.error("Error deleting car:", error);
         }
     };
 

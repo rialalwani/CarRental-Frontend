@@ -90,19 +90,19 @@ const BookCar = ({ fetchBookings }) => {
 
 
 
-        console.log("Socket id:", socket?.current);
+        //console.log("Socket id:", socket?.current);
         socket?.current?.emit("booking-req", bookingDetails)
-        console.log("Socket id:", socket?.current);
+        //console.log("Socket id:", socket?.current);
 
         try {
-            console.log(data)
+            //console.log(data)
             await sendDocs(data)
         }
         catch (error) {
-            console.log("Something went wrong")
+            //console.log("Something went wrong")
         }
 
-        console.log("booking event is emitted")
+        //console.log("booking event is emitted")
 
 
 
@@ -114,7 +114,7 @@ const BookCar = ({ fetchBookings }) => {
     useEffect(() => {
 
         socket?.current?.on("bookingPending", (response) => {
-            console.log("Booking Request made")
+            //console.log("Booking Request made")
             fetchBookings()
             navigate("/mybookings")
         })

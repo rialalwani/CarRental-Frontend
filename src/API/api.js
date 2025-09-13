@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const API=axios.create({
-    baseURL:"https://carrental-backend-dvnk.onrender.com", 
+    baseURL:"https://carrental-backend-dvnk.onrender.com/", 
 })
 
 API.interceptors.request.use(

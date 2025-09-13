@@ -15,6 +15,7 @@ const Footer=()=>{
                 
                 <div  className="policies" style={{textAlign:"center",width:"20rem",marginTop:"1rem"}}>
                 <h5 style={{fontWeight:"bolder",textAlign:"center"}}>Policies</h5>
+                <Link to="/terms-and-conditions" className="links" style={{marginTop:"0.5rem",color:"white"}}>Terms and Conditions</Link>
                 <Link to="/privacy-policy" className="links" style={{marginTop:"0.5rem",color:"white"}}>Privacy Policy</Link>
                 <Link to="/rental-agreement" className="links" style={{color:"white"}}>Rental Agreement</Link>
                 <Link to="/refund-policy" className="links" style={{color:"white"}}>Refund and Cancellation</Link>

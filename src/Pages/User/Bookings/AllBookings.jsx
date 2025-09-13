@@ -73,7 +73,7 @@ const getColor=(status)=>{
 
   const bookingAccepted=()=>{
     fetchAllBookings()
-    console.log("working")
+    //console.log("working")
   }
 
   const bookingCancelled=()=>{

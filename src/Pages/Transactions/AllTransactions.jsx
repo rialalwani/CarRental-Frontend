@@ -4,7 +4,7 @@ import { FaPlus } from "react-icons/fa";
 export const AllTransactions = () => {
     const transactions = useSelector(state=>state.Transactions.transactions);
     const Users=useSelector(state=>state.UserReducers.Users)
-    console.log(transactions)
+    ///console.log(transactions)
 
     const findUser = (userEmail) => {
         return Users.find(u => u.email === userEmail);
@@ -44,7 +44,6 @@ export const AllTransactions = () => {
                     );
                 })}
             </div>
-            {transactions?.length === 0 && <p style={{ textAlign: "center", marginTop: "4rem" }}>No Transactions</p>}
         </div>
     );
 }

@@ -7,6 +7,8 @@
 .allcarsdiv{
     background-color: rgba(0,0,0,0.865);
     padding-top: 2rem;
+    height: fit-content;
+    min-height: 100vh;
 }
 
 .not-available-text {

@@ -8,7 +8,7 @@ import { useSocket } from "../../Socket.js";
 function Navbar() {
     const [showdrawersidebar, setshowdrawersidebar] = useState(false);
     const toggledrawersidebar = () => {
-        console.log("clicked")
+        //console.log("clicked")
         if (showdrawersidebar)
             setshowdrawersidebar(false)
         else
