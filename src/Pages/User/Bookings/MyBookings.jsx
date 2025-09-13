@@ -85,6 +85,19 @@ useEffect(()=>{
     fetchCancelledBookings()
   },[])
 
+  useEffect(() => {
+  const bookingsPage = document.querySelector('.bookings-page')
+  const container = document.querySelector('.my-bookings-container')
+  if (bookingsPage && container) {
+    const containerHeight = container.offsetHeight
+    bookingsPage.style.minHeight = '100vh'
+    bookingsPage.style.height = containerHeight > window.innerHeight
+      ? `${containerHeight + 80}px`
+      : '100vh'
+  }
+}, [ongoingBookings, previousBookings, showPreviousBookings])
+
+
   
 
 
